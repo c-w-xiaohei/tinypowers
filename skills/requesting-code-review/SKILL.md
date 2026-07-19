@@ -1,6 +1,6 @@
 ---
 name: requesting-code-review
-description: Use when independent review is needed for completed code, substantial behavior changes, cross-module work, or before integration; also governs how review findings are verified and acted on
+description: Use before dispatching any subagent for code review, including scoped task or wave review, final integration review, and targeted re-review after fixes; also use whenever code-review findings must be verified, classified, or acted on
 ---
 
 # Requesting Code Review
