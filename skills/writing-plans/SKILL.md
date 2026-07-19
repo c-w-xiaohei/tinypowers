@@ -1,6 +1,6 @@
 ---
 name: writing-plans
-description: Use when confirmed requirements must be turned into a concrete multi-step implementation plan before editing code
+description: Use when you have a spec or requirements for a multi-step task, before editing code
 ---
 
 # Writing Plans
@@ -49,6 +49,11 @@ Save plans to the user-requested location, or `docs/tinypowers/plans/YYYY-MM-DD-
 
 **Approach:** [Short implementation approach]
 
+## Global Constraints
+- [Project-wide constraint, with exact values copied from the source]
+
+Every task's requirements include this section.
+
 ## Requirements and Scope
 - [Detailed original requirement]
 - [Included behavior and boundaries]
@@ -77,10 +82,12 @@ Save plans to the user-requested location, or `docs/tinypowers/plans/YYYY-MM-DD-
 
 **Requirements:**
 - [Task-specific behavior and non-goals]
+- [Every applicable Global Constraint]
 
 **Steps:**
-- [ ] If meaningful behavior changes, write and run the failing behavior test; otherwise state why no new test is needed and use the appropriate check.
-- [ ] Implement the minimal change. Include exact code or pseudocode when the shape is not obvious.
+- [ ] If meaningful behavior changes, write the failing behavior test; otherwise state why no new test is needed.
+- [ ] Run the failing test; expect [failure proving missing or wrong behavior].
+- [ ] Implement the minimal change. When the shape is not obvious, include the exact code or pseudocode under this step.
 - [ ] Run `[focused command]`; expect [result].
 - [ ] Run `[integration command if needed]`; expect [result].
 
@@ -90,6 +97,7 @@ Save plans to the user-requested location, or `docs/tinypowers/plans/YYYY-MM-DD-
 
 ## Detail Standard
 
+- Each checklist step is one action. Split multi-part implementation into ordered steps.
 - Use exact paths, commands, values, signatures, and expected outcomes when known.
 - Include enough implementation detail to prevent rediscovery, but do not duplicate obvious code mechanically.
 - Never use `TBD`, vague “handle errors,” unspecified “write tests,” or references to undefined interfaces.

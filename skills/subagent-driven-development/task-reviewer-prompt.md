@@ -3,22 +3,31 @@
 Use this template for a read-only scoped review.
 
 ```text
-Role: Review one task for requirement compliance and code quality.
+Dispatch:
+  description: Review [TASK_NAME]
+  model: [MODEL - REQUIRED: choose per SKILL.md Model Selection]
+  prompt: [filled template below]
+```
 
-Requirement source: [BRIEF_FILE]
+```text
+Role: Review one task or wave for requirement compliance and code quality.
+
+Requirement source(s): [BRIEF_FILES]
 Implementer report: [REPORT_FILE]
-Change under review: [DIFF_OR_CHANGED_PATHS]
+Task or wave baseline: [BASELINE]
+Review scope: [TASK_EXCLUSIVE_PATHS_OR_WAVE_SCOPE]
+Complete net change within scope: [CHANGE_ARTIFACT_OR_EXACT_STATE]
 Current revision/worktree state: [REVISION]
 Binding project rules: [PROJECT_RULES]
 
-Inspect the requirement source and changed code directly. Treat the implementer report as a lead, not proof. Inspect unchanged callers or project rules only for a concrete risk you name; this is a task review, not a broad integration review.
+Inspect the requirement sources and changed code directly. The complete net change must cover committed, staged, unstaged, and relevant untracked state within the review scope since the baseline. Treat concurrent sibling paths outside that scope as explicitly excluded, not as unintended task changes. Treat implementer reports as leads, not proof. Inspect unchanged callers or project rules only for a concrete risk you name; this is a scoped review, not a broad integration review.
 
 Check:
 - missing, extra, or misunderstood requirements;
 - correctness, error handling, and edge cases;
 - consistency with project structure and dependency rules;
 - tests of real behavior and their stated evidence;
-- unintended changes outside task scope.
+- unintended changes outside the declared review scope.
 
 Do not mutate the checkout. Do not rerun a suite already evidenced for the same revision unless a specific unresolved doubt requires a focused check.
 

@@ -25,7 +25,7 @@ Give the reviewer:
 
 - current requirements, binding decisions, and non-goals;
 - description of the implemented behavior;
-- current revision or changed worktree paths;
+- the task or wave baseline and complete net change within the stated review scope, including committed, staged, unstaged, and relevant untracked files;
 - relevant project rules, callers, runtime facts, and acceptance checks;
 - explicit review scope.
 

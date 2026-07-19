@@ -16,6 +16,8 @@ Before dispatching, confirm the plan states:
 - required runtime, caller, storage, and module facts;
 - task dependencies and acceptance checks.
 
+Read the plan's cited source before treating the plan or a derived brief as authoritative. If its binding decisions, non-goals, or superseded directions conflict with the plan, present the conflicting source text to the user before implementation.
+
 If implementation depends on an unresolved fact, stop and return to discovery rather than guessing it into a task. If plan text conflicts with a binding user or project decision, present the conflict to the user before execution.
 
 ## Task Graph and Parallel Waves
@@ -31,6 +33,8 @@ In a shared checkout:
 - let the controller integrate the wave.
 
 Parallel writers may commit only in isolated checkouts with one integration owner. Never let concurrent agents compete for the same index, HEAD, mutable test resource, or generated output.
+
+Before each writer wave, record the baseline needed to reconstruct the complete net change for each task or wave. Review committed work from its recorded `BASE` through `HEAD`, never only `HEAD~1`; for shared uncommitted work, include all tracked and relevant untracked changes within the task's exclusive paths or the wave's declared scope, and identify concurrent sibling paths as out of scope.
 
 ## Execution Loop
 
@@ -57,6 +61,8 @@ Use [implementer-prompt.md](implementer-prompt.md). A task brief is the task's r
 - interfaces and dependencies from prior waves;
 - allowed paths and forbidden scope;
 - acceptance checks and report path.
+
+Each brief must restate the applicable plan-level source, Global Constraints, requirements, non-goals, known facts, and binding decisions as well as the selected task. Do not make a fresh implementer reconstruct them from earlier tasks or session history.
 
 Use file artifacts for detailed briefs and reports so controller context does not accumulate repeated task history. The implementer returns only status, changed paths, test summary, report path, and concerns.
 
@@ -87,6 +93,8 @@ On OpenCode, resume by passing the original `task_id`. Ordinary implementation, 
 
 Use [task-reviewer-prompt.md](task-reviewer-prompt.md) for scoped review and `requesting-code-review`'s [code-reviewer.md](../requesting-code-review/code-reviewer.md) for integration review.
 
+Give reviewers requirements and evidence, not conclusions. Do not tell them what not to flag or cap a finding's severity; classify findings only after review returns.
+
 ## Findings and Fixes
 
 Reviewer severity does not authorize implementation. Before dispatching any blocking fix, apply the finding classification and action owned by `requesting-code-review`.
@@ -95,23 +103,25 @@ Re-review only the accepted finding set and direct regressions from its fix. A n
 
 `Cannot verify` remains open. Dispatch a focused subagent with the requirement, relevant sources, and exact question; then classify its evidence as a gap, satisfied requirement, source conflict, or residual risk. The controller schedules and records the transition but does not perform the verification or implementation itself.
 
+After an accepted fix, require the implementer to update the report with the covering command, relevant output, and current revision or worktree state. Do not dispatch the targeted recheck until that evidence is present.
+
 ## Model Selection
 
 Use the least capable model that reliably handles the role:
 
-- clear, isolated mechanical implementation: fast model;
-- integration, debugging, or multi-file judgment: standard model;
-- architecture and broad integration review: strongest available model.
+- complete-code transcription or a single-file mechanical fix: fast model;
+- implementers working from prose, multi-file integration, debugging, and scoped reviewers: standard model or stronger;
+- architecture, subtle concurrency, and broad integration review: strongest available model.
 
-Specify the model explicitly. Turn count and failed retries can cost more than a stronger model.
+Specify the model explicitly in every dispatch. Omitting it may inherit the session default and bypass this selection. Turn count and failed retries can cost more than a stronger model.
 
 ## Progress and Completion
 
-Use a durable progress file only when execution may span compaction or multiple days. Bind it to the current plan and worktree; do not trust a stale repository-wide `Task N` entry without checking current state.
+Use a durable progress file only when execution may span compaction or multiple days. When needed, store it at `.superpowers/sdd/progress.md`, record the plan and worktree identity plus each task or wave's gate state, and update it immediately after a task passes acceptance and review. On start or resume, read it and reconcile every entry with the current revision and worktree before dispatching more work.
 
 After all waves:
 
 1. Run any required integration review once.
 2. Resolve accepted blocking findings with targeted rechecks.
 3. Use `verification-before-completion` to map every binding requirement to current evidence, a gap, or an accepted residual risk.
-4. Report verification and worktree state. Do not commit, merge, or create a PR unless requested.
+4. Report verification and worktree state. Do not commit, push, merge, or create a PR unless requested.

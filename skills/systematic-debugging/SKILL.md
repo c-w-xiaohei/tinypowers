@@ -51,7 +51,11 @@ If you do not understand a dependency or result, say so and gather the missing e
 4. Avoid “while here” improvements and bundled refactors.
 5. Verify the original symptom and relevant regressions.
 
+If the implemented fix does not resolve the original symptom, stop and return to investigation with the new evidence instead of stacking another fix.
+
 After three failed hypotheses that expose new coupling, shared state, or symptoms, stop, reconsider the model, and discuss the architecture with the user instead of applying a fourth speculative patch.
+
+If evidence establishes an external or environmental cause outside local control, document what was ruled out, implement only justified resilience or diagnostic behavior such as a bounded retry, timeout, actionable error, or monitoring, and verify that behavior.
 
 ## Defense in Depth
 

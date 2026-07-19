@@ -3,6 +3,13 @@
 Fill this template for one implementation task.
 
 ```text
+Dispatch:
+  description: Implement [TASK_NAME]
+  model: [MODEL - REQUIRED: choose per SKILL.md Model Selection]
+  prompt: [filled template below]
+```
+
+```text
 Role: Implement the task described in [BRIEF_FILE].
 Worktree: [DIRECTORY]
 Report: [REPORT_FILE]
@@ -23,6 +30,8 @@ Forbidden scope: [FORBIDDEN_SCOPE]
 Git policy: [DO_NOT_STAGE_OR_COMMIT | ISOLATED_CHECKOUT_MAY_COMMIT]
 
 If required facts are missing, the plan is wrong, or work requires unapproved architecture or paths, stop with NEEDS_CONTEXT or BLOCKED.
+
+After fixing an accepted review finding, rerun the checks covering the amended code and append the command, relevant output, and current revision or worktree state to the same report before returning.
 
 Write the report with:
 - status: DONE | DONE_WITH_CONCERNS | NEEDS_CONTEXT | BLOCKED;
