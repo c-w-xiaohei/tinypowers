@@ -166,8 +166,8 @@ archive_paths="$(list_archive "$archive" | normalize_archive_paths)"
 unexpected_pattern='(^superpowers/|^\.agents/|^hooks/|package\.json$|^\.git|^\.pytest_cache|^\.ruff_cache|^scripts/|^tests/|^docs/|^evals/|^lib/|^\.claude|^\.cursor|^\.kimi|^\.opencode|^\.pi|^AGENTS\.md$|^CLAUDE\.md$|^GEMINI\.md$|^RELEASE-NOTES\.md$|^CHANGELOG\.md$)'
 assert_not_matches "$archive_paths" "$unexpected_pattern" "archive excludes source-only paths"
 assert_contains "$archive_paths" ".codex-plugin/plugin.json" "archive includes Codex manifest"
-assert_contains "$archive_paths" "skills/brainstorming/SKILL.md" "archive includes skills"
-assert_contains "$archive_paths" "skills/brainstorming/agents/openai.yaml" "archive includes OpenAI skill metadata"
+assert_contains "$archive_paths" "skills/verification-before-completion/SKILL.md" "archive includes skills"
+assert_contains "$archive_paths" "skills/verification-before-completion/agents/openai.yaml" "archive includes OpenAI skill metadata"
 assert_contains "$archive_paths" "assets/app-icon.png" "archive includes app icon"
 assert_contains "$archive_paths" "assets/superpowers-small.svg" "archive includes composer icon"
 
@@ -250,9 +250,9 @@ else
 fi
 
 incomplete_metadata="$TEST_ROOT/incomplete-metadata"
-mkdir -p "$incomplete_metadata/skills/brainstorming/agents"
-cp "$metadata_source/skills/brainstorming/agents/openai.yaml" \
-  "$incomplete_metadata/skills/brainstorming/agents/openai.yaml"
+mkdir -p "$incomplete_metadata/skills/verification-before-completion/agents"
+cp "$metadata_source/skills/verification-before-completion/agents/openai.yaml" \
+  "$incomplete_metadata/skills/verification-before-completion/agents/openai.yaml"
 
 set +e
 missing_output="$("$SCRIPT_UNDER_TEST" --allow-dirty --metadata-source "$incomplete_metadata" --output "$TEST_ROOT/missing.tar.gz" 2>&1)"

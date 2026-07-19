@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Test: Native Skill Tool Functionality
 # Verifies that OpenCode's native skill tool can load personal, project,
-# and bundled superpowers skills.
+# and bundled Tinypowers skills.
 # NOTE: These tests require OpenCode to be installed and configured
 set -euo pipefail
 
@@ -82,14 +82,14 @@ echo "  Running opencode with project-test request..."
 run_opencode output "$TEST_HOME/test-project" "Call the skill tool with name \"project-test\". Then print the PROJECT_SKILL_MARKER_67890 marker."
 assert_contains "$output" "PROJECT_SKILL_MARKER_67890" "native skill tool loaded project-test skill content"
 
-# Test 3: Test bundled superpowers skill loading
+# Test 3: Test bundled Tinypowers skill loading
 echo ""
-echo "Test 3: Testing native skill tool with a superpowers skill..."
-echo "  Running opencode with brainstorming skill..."
+echo "Test 3: Testing native skill tool with a Tinypowers skill..."
+echo "  Running opencode with verification-before-completion skill..."
 
-run_opencode output "$TEST_HOME/test-project" "Call the skill tool with name \"brainstorming\". Then tell me the loaded skill title."
-assert_contains "$output" '"name":"brainstorming"' "native skill tool loaded bundled brainstorming skill"
-assert_contains "$output" "Brainstorming Ideas Into Designs" "brainstorming skill content was returned"
+run_opencode output "$TEST_HOME/test-project" "Call the skill tool with name \"verification-before-completion\". Then tell me the loaded skill title."
+assert_contains "$output" '"name":"verification-before-completion"' "native skill tool loaded bundled verification skill"
+assert_contains "$output" "Claim-Bound Verification" "verification skill content was returned"
 
 echo ""
 echo "=== All native skill tool tests passed ==="

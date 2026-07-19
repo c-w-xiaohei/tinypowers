@@ -1,23 +1,14 @@
 {
-  "name": "superpowers",
+  "name": "tinypowers",
   "version": "6.1.1",
-  "description": "Superpowers skills and runtime bootstrap for coding agents",
+  "description": "A streamlined Tinypowers skills package for flagship coding agents",
   "type": "module",
-  "main": ".opencode/plugins/superpowers.js",
+  "main": ".opencode/plugins/tinypowers.js",
   "keywords": [
-    "pi-package",
     "skills",
     "tdd",
     "debugging",
     "collaboration",
     "workflow"
-  ],
-  "pi": {
-    "extensions": [
-      "./.pi/extensions/superpowers.ts"
-    ],
-    "skills": [
-      "./skills"
-    ]
-  }
+  ]
 }

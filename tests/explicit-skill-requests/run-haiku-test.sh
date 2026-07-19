@@ -49,7 +49,7 @@ EOF
 
 echo ""
 
-# Turn 1: Start brainstorming
+# Turn 1: Start design discussion
 echo ">>> Turn 1: Brainstorming request..."
 claude -p "I want to add user authentication to my app. Help me think through this." \
     --model haiku \

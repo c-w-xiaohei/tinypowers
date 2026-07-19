@@ -21,13 +21,10 @@ def assert_present(text, needle, label):
     if needle not in text:
         raise AssertionError(f"{label}: missing {needle!r}")
 
-assert_equal(manifest.get("name"), "superpowers", "plugin name")
+assert_equal(manifest.get("name"), "tinypowers", "plugin name")
 assert_equal(manifest.get("skills"), "./skills/", "skills path")
-assert_equal(
-    manifest.get("sessionStart", {}).get("skill"),
-    "using-superpowers",
-    "sessionStart.skill",
-)
+if "sessionStart" in manifest:
+    raise AssertionError("removed bootstrap sessionStart field must not be present")
 
 instructions = manifest.get("skillInstructions")
 if not isinstance(instructions, str) or not instructions.strip():

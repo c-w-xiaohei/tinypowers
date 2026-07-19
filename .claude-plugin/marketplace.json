@@ -1,14 +1,14 @@
 {
-  "name": "superpowers-dev",
-  "description": "Development marketplace for Superpowers core skills library",
+  "name": "tinypowers-dev",
+  "description": "Development marketplace for Tinypowers core skills library",
   "owner": {
     "name": "Jesse Vincent",
     "email": "jesse@fsck.com"
   },
   "plugins": [
     {
-      "name": "superpowers",
-      "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques",
+      "name": "tinypowers",
+      "description": "A streamlined skills library for flagship coding agents",
       "version": "6.1.1",
       "source": "./",
       "author": {

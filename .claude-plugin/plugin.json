@@ -1,13 +1,13 @@
 {
-  "name": "superpowers",
-  "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques",
+  "name": "tinypowers",
+  "description": "A streamlined Tinypowers skills library for flagship coding agents",
   "version": "6.1.1",
   "author": {
     "name": "Jesse Vincent",
     "email": "jesse@fsck.com"
   },
-  "homepage": "https://github.com/obra/superpowers",
-  "repository": "https://github.com/obra/superpowers",
+  "homepage": "https://github.com/c-w-xiaohei/tinypowers",
+  "repository": "https://github.com/c-w-xiaohei/tinypowers",
   "license": "MIT",
   "keywords": [
     "skills",
