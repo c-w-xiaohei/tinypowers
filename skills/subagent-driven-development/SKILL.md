@@ -50,7 +50,7 @@ For each ready wave:
 8. Resume implementers for accepted fixes and reviewers for targeted rechecks.
 9. Mark tasks complete only when acceptance and quality gates are satisfied.
 
-Continue without routine check-ins. Stop for an unresolved blocker, a source conflict, an ambiguity that prevents correct work, or a decision that would expand the user's scope.
+Continue without routine check-ins. A task-local blocker pauses only that task and its dependents; recompute the ready set and continue all unaffected work. Ask the user only when no further independent progress is possible, batching unrelated decisions into one question. Stop immediately when a blocker invalidates shared assumptions, creates a source conflict, or makes continued work unsafe.
 
 ## Handoffs
 
