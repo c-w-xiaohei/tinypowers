@@ -54,15 +54,16 @@ Continue without routine check-ins. A task-local blocker pauses only that task a
 
 ## Handoffs
 
-Use [implementer-prompt.md](implementer-prompt.md). A task brief is the task's requirement source and should contain:
+Use [implementer-prompt.md](implementer-prompt.md). A task brief is the task's execution boundary, not a replacement for authoritative requirements. It should contain:
 
 - task outcome and context;
+- the exact authoritative source anchors applicable to the task;
 - binding requirements and non-goals;
 - interfaces and dependencies from prior waves;
 - allowed paths and forbidden scope;
 - acceptance checks and report path.
 
-Each brief must restate the applicable plan-level source, Global Constraints, requirements, non-goals, known facts, and binding decisions as well as the selected task. Do not make a fresh implementer reconstruct them from earlier tasks or session history.
+Each brief must restate the applicable Global Constraints, requirements, non-goals, known facts, and binding decisions as well as the selected task. Cite only the source paths or exact sections needed to validate that boundary; do not make a fresh implementer reconstruct it from earlier tasks or session history.
 
 Use file artifacts for detailed briefs and reports so controller context does not accumulate repeated task history. The implementer returns only status, changed paths, test summary, report path, and concerns.
 
@@ -93,7 +94,7 @@ On OpenCode, resume by passing the original `task_id`. Ordinary implementation, 
 
 Use [task-reviewer-prompt.md](task-reviewer-prompt.md) for scoped review and `requesting-code-review`'s [code-reviewer.md](../requesting-code-review/code-reviewer.md) for integration review.
 
-Give reviewers requirements and evidence, not conclusions. Do not tell them what not to flag or cap a finding's severity; classify findings only after review returns.
+Give reviewers the applicable authoritative source anchors, the derived plan or brief, and evidence, not conclusions. Reviewers check source-to-brief fidelity before brief-to-change fidelity. Do not tell them what not to flag or cap a finding's severity; classify findings only after review returns.
 
 ## Findings and Fixes
 

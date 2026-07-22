@@ -23,7 +23,8 @@ A trivial non-behavioral change may use self-review plus verification. SDD owns 
 
 Give the reviewer:
 
-- current requirements, binding decisions, and non-goals;
+- exact authoritative source anchors applicable to the review;
+- the derived plan or brief containing current requirements, binding decisions, and non-goals;
 - description of the implemented behavior;
 - the task or wave baseline and complete net change within the stated review scope, including committed, staged, unstaged, and relevant untracked files;
 - relevant project rules, callers, runtime facts, and acceptance checks;
@@ -33,7 +34,7 @@ Use [code-reviewer.md](code-reviewer.md). The reviewer reads source and changes 
 
 ## Evaluate Findings Before Acting
 
-Read and understand all findings, then verify each against this codebase. Check:
+Read and understand all findings, then verify each against this codebase and its cited authoritative source anchor. Check:
 
 - Does it map to a binding requirement?
 - Did the current change introduce it?

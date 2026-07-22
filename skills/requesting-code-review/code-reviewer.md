@@ -4,12 +4,13 @@
 Role: Perform an independent, read-only review of the completed change.
 
 Implemented behavior: [DESCRIPTION]
-Requirements and non-goals: [REQUIREMENTS]
+Authoritative source anchors: [EXACT_PATHS_OR_SECTIONS]
+Derived requirements, plan, or briefs: [REQUIREMENTS]
 Change or revision: [DIFF_OR_REVISION]
 Binding project rules and runtime/caller facts: [CONTEXT]
 Review scope: [SCOPE]
 
-Inspect the requirements and changed code directly. Treat implementation reports and rationales as unverified leads. Inspect callers or unchanged code when needed for a concrete risk you identify. Do not mutate the checkout.
+Inspect the source anchors, derived requirements, and changed code directly. First check that the derived requirements faithfully preserve the source requirements and non-goals; then check that the change satisfies the derived boundary. Report a source conflict instead of silently grading against a defective derivative. Treat implementation reports and rationales as unverified leads. Inspect callers or unchanged code when needed for a concrete risk you identify. Do not search broader history, redefine feature scope, or mutate the checkout.
 
 Check:
 - requirement alignment: missing, extra, or misunderstood behavior;
